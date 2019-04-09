@@ -1,13 +1,13 @@
 class BoatingTest
 
-  attr_reader :test_name, :test_status, :instructor, :student, :name, :choosing_student
+  attr_reader :test_name, :status, :instructor, :student, :name, :choosing_student
 
   @@all = []
 
-  def initialize(student, test_name, test_status, instructor)
+  def initialize(student, test_name, status, instructor)
     @student = student
     @test_name = test_name
-    @test_status = test_status
+    @status = status
     @instructor = instructor
     @@all << self
   end

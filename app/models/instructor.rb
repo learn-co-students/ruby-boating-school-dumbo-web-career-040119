@@ -20,7 +20,7 @@ class Instructor
       test.test_status = "passed"
       return test
       else
-       new_test = BoatingTest.new(student, test_name, "passed", self)
+       new_test = BoatingTest.new(student, test, "passed", self)
        return new_test
      end
   end
@@ -31,7 +31,7 @@ class Instructor
       if test.test_status = "failed"
         return test
        else
-         new_test = BoatingTest.new(student, test_name, "failed", self)
+         new_test = BoatingTest.new(student, test, "failed", self)
          return new_test
      end
    end
