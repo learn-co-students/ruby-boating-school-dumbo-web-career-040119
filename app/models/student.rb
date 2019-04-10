@@ -1,6 +1,6 @@
 class Student
 
-  attr_reader :fist_name
+  attr_reader :first_name
   @@all = []
   # * should initialize with `first_name`
   def initialize(first_name)
@@ -18,10 +18,25 @@ class Student
     BoatingTest.new(self, test_name, status, instructor)
   end
 
+  # * `Student.find_student` will take in a first name and output the student (Object) with that name
+
+  def self.find_student(first_name)
+    self.all.select do |student|
+      student.first_name == first_name
+    end
+  end
+
+  # * `Student#grade_percentage` should return the percentage of tests that the student has passed, a Float (so if a student has passed 3 / 9 tests that they've taken, this method should return the Float `33.33`)
+  def grade_percentage
+    all_students_tests = BoatingTest.all.select do |test|
+      test.student == self
+    end
+    passed_tests = all_students_tests.select do |test|
+      test.status == "passed"
+    end
+    ratio = passed_tests.length.to_f / all_students_tests.length.to_f
+
+    "#{ratio*100}%"
+  end
+
 end
-
-
-
-
-# * `Student.find_student` will take in a first name and output the student (Object) with that name
-# * `Student#grade_percentage` should return the percentage of tests that the student has passed, a Float (so if a student has passed 3 / 9 tests that they've taken, this method should return the Float `33.33`)

@@ -1,7 +1,7 @@
 class BoatingTest
 
   attr_accessor :test_name, :status
-  attr_reader :student, :instructor
+  attr_reader :student, :instructor, :status
   @@all = []
 
   # * should initialize with Student (Object), a boating test name (String), a boating test status (String), and an Instructor (Object)
